@@ -41,7 +41,7 @@ def check_word():
         if not guess:
             return jsonify({"error": "Missing guess"}), 400
 
-        if len(guess) != 5 or not guess.isalpha():
+        if not re.match(r"^[a-zA-Z]{5}$", guess):
             return jsonify({"error": "Invalid guess format"}), 400
 
         result = []
